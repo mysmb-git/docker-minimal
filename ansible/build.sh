@@ -46,6 +46,9 @@ declare -a releaseversions=(
 "2.9.0"
 )
 
+declare -a testarr=( $(curl https://api.github.com/repos/ansible/ansible/tags | jq '.[] | .name') )
+
+
 for releaseversion in "${releaseversions[@]}";
 do
     ANSBLE_VERSION=$releaseversion
